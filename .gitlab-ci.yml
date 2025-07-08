@@ -7,8 +7,8 @@ sonarqube-check:
     name: sonarsource/sonar-scanner-cli
     entrypoint: [""]
   variables:
-    SONAR_HOST_URL: "http://localhost:9000"  # Или SonarCloud URL
-    SONAR_TOKEN: $SONAR_TOKEN                # Токен из GitLab CI/CD → Variables
+    SONAR_HOST_URL: "http://localhost:9000"  
+    SONAR_TOKEN:               
   script:
     - sonar-scanner
   rules:
