@@ -1,0 +1,15 @@
+stages:
+  - test
+
+sonarqube-check:
+  stage: test
+  image:
+    name: sonarsource/sonar-scanner-cli
+    entrypoint: [""]
+  variables:
+    SONAR_HOST_URL: "http://localhost:9000"  # Или SonarCloud URL
+    SONAR_TOKEN: $SONAR_TOKEN                # Токен из GitLab CI/CD → Variables
+  script:
+    - sonar-scanner
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
